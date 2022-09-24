@@ -1,0 +1,35 @@
+const fs = require("fs");
+require("dotenv").config();
+
+module.exports = {
+  development: {
+    username: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+    dialect: process.env.DB_DIALECT,
+    migrationStorageTableName: process.env.DB_MIGRATION_TABLE_NAME,
+    timezone: "+04:00",
+  },
+  staging: {
+    username: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+    dialect: process.env.DB_DIALECT,
+    migrationStorageTableName: process.env.DB_MIGRATION_TABLE_NAME,
+    timezone: "+04:00",
+  },
+  production: {
+    username: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+    dialect: process.env.DB_DIALECT,
+    migrationStorageTableName: process.env.DB_MIGRATION_TABLE_NAME,
+    timezone: "+04:00",
+  },
+};

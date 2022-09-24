@@ -1,0 +1,34 @@
+{
+  "name": "qhses-portal-backend",
+  "version": "1.0.0",
+  "description": "QHSES PORTAL Backend",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "db:create": "sequelize db:create",
+    "db:migrate": "sequelize db:migrate",
+    "db:seed": "sequelize db:seed:all",
+    "db:setup": "sequelize db:migrate && sequelize db:seed:all"
+  },
+  "author": "Muhammad Usman",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.25.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.1",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "http-errors": "^1.8.1",
+    "joi": "^17.5.0",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.1",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.4",
+    "mysql2": "^2.3.3",
+    "nodemailer": "^6.7.2",
+    "nodemon": "^2.0.15",
+    "sequelize": "^6.12.0-beta.3",
+    "tedious": "^14.0.0"
+  }
+}
