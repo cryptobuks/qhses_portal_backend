@@ -179,13 +179,13 @@ addAudit = async (req, res, next) => {
         `${process.env.FRONTEND_BASE_URL}/internal-audit/${auditRes.id}/report`
       ),
     };
-    await sequelize.query(
-      `InsertEmailAlerts  @msg_to = '${emailMessage.msg_to}', @msg_cc = '${
-        emailMessage.msg_cc ? emailMessage.msg_cc : ""
-      }', @msg_subject = '${emailMessage.msg_subject}', @msg_body = '${
-        emailMessage.msgbody
-      }', @is_send = 0, @emailtype = internal_audit;`
-    );
+    // await sequelize.query(
+    //   `InsertEmailAlerts  @msg_to = '${emailMessage.msg_to}', @msg_cc = '${
+    //     emailMessage.msg_cc ? emailMessage.msg_cc : ""
+    //   }', @msg_subject = '${emailMessage.msg_subject}', @msg_body = '${
+    //     emailMessage.msgbody
+    //   }', @is_send = 0, @emailtype = internal_audit;`
+    // );
     res.send({
       data: auditRes,
     });
@@ -325,15 +325,15 @@ addAuditNotification = async (req, res, next) => {
       });
     }
     if (emailMessages && emailMessages.length > 0) {
-      emailMessages.forEach(async (emailMessage) => {
-        const result = await sequelize.query(
-          `InsertEmailAlerts  @msg_to = '${emailMessage.msg_to}', @msg_cc = '${
-            emailMessage.msg_cc ? emailMessage.msg_cc : ""
-          }', @msg_subject = '${emailMessage.msg_subject}', @msg_body = '${
-            emailMessage.msgbody
-          }', @is_send = 0, @emailtype = internal_audit;`
-        );
-      });
+      // emailMessages.forEach(async (emailMessage) => {
+      //   const result = await sequelize.query(
+      //     `InsertEmailAlerts  @msg_to = '${emailMessage.msg_to}', @msg_cc = '${
+      //       emailMessage.msg_cc ? emailMessage.msg_cc : ""
+      //     }', @msg_subject = '${emailMessage.msg_subject}', @msg_body = '${
+      //       emailMessage.msgbody
+      //     }', @is_send = 0, @emailtype = internal_audit;`
+      //   );
+      // });
     }
 
     res.send({

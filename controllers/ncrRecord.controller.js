@@ -267,15 +267,15 @@ addRecord = async (req, res, next) => {
       });
     }
     if (emailMessages.length > 0) {
-      emailMessages.forEach(async (emailMessage) => {
-        const result = await sequelize.query(
-          `InsertEmailAlerts  @msg_to = '${emailMessage.msg_to}', @msg_cc = '${
-            emailMessage.msg_cc ? emailMessage.msg_cc : ""
-          }', @msg_subject = '${emailMessage.msg_subject}', @msg_body = '${
-            emailMessage.msgbody
-          }', @is_send = 0, @emailtype = ncr;`
-        );
-      });
+      // emailMessages.forEach(async (emailMessage) => {
+      //   const result = await sequelize.query(
+      //     `InsertEmailAlerts  @msg_to = '${emailMessage.msg_to}', @msg_cc = '${
+      //       emailMessage.msg_cc ? emailMessage.msg_cc : ""
+      //     }', @msg_subject = '${emailMessage.msg_subject}', @msg_body = '${
+      //       emailMessage.msgbody
+      //     }', @is_send = 0, @emailtype = ncr;`
+      //   );
+      // });
       // await EmailMessage.bulkCreate(emailMessages);
     }
 
@@ -517,15 +517,15 @@ updateRecord = async (req, res, next) => {
       });
     }
     if (emailMessages.length > 0) {
-      emailMessages.forEach(async (emailMessage) => {
-        const result = await sequelize.query(
-          `InsertEmailAlerts  @msg_to = '${emailMessage.msg_to}', @msg_cc = '${
-            emailMessage.msg_cc ? emailMessage.msg_cc : ""
-          }', @msg_subject = '${emailMessage.msg_subject}', @msg_body = '${
-            emailMessage.msgbody
-          }', @is_send = 0, @emailtype = ncr;`
-        );
-      });
+      // emailMessages.forEach(async (emailMessage) => {
+      //   const result = await sequelize.query(
+      //     `InsertEmailAlerts  @msg_to = '${emailMessage.msg_to}', @msg_cc = '${
+      //       emailMessage.msg_cc ? emailMessage.msg_cc : ""
+      //     }', @msg_subject = '${emailMessage.msg_subject}', @msg_body = '${
+      //       emailMessage.msgbody
+      //     }', @is_send = 0, @emailtype = ncr;`
+      //   );
+      // });
       // await EmailMessage.bulkCreate(emailMessages);
     }
     const data = await NcrRecord.findOne({
@@ -654,15 +654,15 @@ updateActionPlan = async (req, res, next) => {
      * End NCR Owner email on action plan closed
      */
     if (emailMessages.length > 0) {
-      emailMessages.forEach(async (emailMessage) => {
-        const result = await sequelize.query(
-          `InsertEmailAlerts  @msg_to = '${emailMessage.msg_to}', @msg_cc = '${
-            emailMessage.msg_cc ? emailMessage.msg_cc : ""
-          }', @msg_subject = '${emailMessage.msg_subject}', @msg_body = '${
-            emailMessage.msgbody
-          }', @is_send = 0, @emailtype = ncr;`
-        );
-      });
+      // emailMessages.forEach(async (emailMessage) => {
+      //   const result = await sequelize.query(
+      //     `InsertEmailAlerts  @msg_to = '${emailMessage.msg_to}', @msg_cc = '${
+      //       emailMessage.msg_cc ? emailMessage.msg_cc : ""
+      //     }', @msg_subject = '${emailMessage.msg_subject}', @msg_body = '${
+      //       emailMessage.msgbody
+      //     }', @is_send = 0, @emailtype = ncr;`
+      //   );
+      // });
       // await EmailMessage.bulkCreate(emailMessages);
     }
     if (result == 0) throw createError.BadRequest();
@@ -909,14 +909,14 @@ checkActionPlansTargetDate = async (req, res, next) => {
             msg_subject: "Action Plan Overdue",
             msgbody: body,
           };
-          const result = await sequelize.query(
-            `InsertEmailAlerts  @msg_to = '${emailObj.msg_to}', @msg_cc = '${
-              emailObj.msg_cc ? emailObj.msg_cc : ""
-            }', @msg_subject = '${emailObj.msg_subject}', @msg_body = '${
-              emailObj.msgbody
-            }', @is_send = 0, @emailtype = ncr;`
-          );
-          // await EmailMessage.create(emailObj);
+          // const result = await sequelize.query(
+          //   `InsertEmailAlerts  @msg_to = '${emailObj.msg_to}', @msg_cc = '${
+          //     emailObj.msg_cc ? emailObj.msg_cc : ""
+          //   }', @msg_subject = '${emailObj.msg_subject}', @msg_body = '${
+          //     emailObj.msgbody
+          //   }', @is_send = 0, @emailtype = ncr;`
+          // );
+          await EmailMessage.create(emailObj);
         } else if (days <= 6) {
           const record = await NcrRecord.findOne({
             where: { id: plan.ncr_record_id },
@@ -934,14 +934,14 @@ checkActionPlansTargetDate = async (req, res, next) => {
             msg_subject: "NCR Action Plan",
             msgbody: body,
           };
-          const result = await sequelize.query(
-            `InsertEmailAlerts  @msg_to = '${emailObj.msg_to}', @msg_cc = '${
-              emailObj.msg_cc ? emailObj.msg_cc : ""
-            }', @msg_subject = '${emailObj.msg_subject}', @msg_body = '${
-              emailObj.msgbody
-            }', @is_send = 0, @emailtype = ncr;`
-          );
-          // await EmailMessage.create(emailObj);
+          // const result = await sequelize.query(
+          //   `InsertEmailAlerts  @msg_to = '${emailObj.msg_to}', @msg_cc = '${
+          //     emailObj.msg_cc ? emailObj.msg_cc : ""
+          //   }', @msg_subject = '${emailObj.msg_subject}', @msg_body = '${
+          //     emailObj.msgbody
+          //   }', @is_send = 0, @emailtype = ncr;`
+          // );
+          await EmailMessage.create(emailObj);
         } else if (days <= 7) {
           const record = await NcrRecord.findOne({
             where: { id: plan.ncr_record_id },
@@ -959,14 +959,14 @@ checkActionPlansTargetDate = async (req, res, next) => {
             msg_subject: "NCR Action Plan",
             msgbody: body,
           };
-          const result = await sequelize.query(
-            `InsertEmailAlerts  @msg_to = '${emailObj.msg_to}', @msg_cc = '${
-              emailObj.msg_cc ? emailObj.msg_cc : ""
-            }', @msg_subject = '${emailObj.msg_subject}', @msg_body = '${
-              emailObj.msgbody
-            }', @is_send = 0, @emailtype = ncr;`
-          );
-          // await EmailMessage.create(emailObj);
+          // const result = await sequelize.query(
+          //   `InsertEmailAlerts  @msg_to = '${emailObj.msg_to}', @msg_cc = '${
+          //     emailObj.msg_cc ? emailObj.msg_cc : ""
+          //   }', @msg_subject = '${emailObj.msg_subject}', @msg_body = '${
+          //     emailObj.msgbody
+          //   }', @is_send = 0, @emailtype = ncr;`
+          // );
+          await EmailMessage.create(emailObj);
         } else if (days <= 31) {
           const record = await NcrRecord.findOne({
             where: { id: plan.ncr_record_id },
@@ -984,14 +984,14 @@ checkActionPlansTargetDate = async (req, res, next) => {
             msg_subject: "NCR Action Plan",
             msgbody: body,
           };
-          const result = await sequelize.query(
-            `InsertEmailAlerts  @msg_to = '${emailObj.msg_to}', @msg_cc = '${
-              emailObj.msg_cc ? emailObj.msg_cc : ""
-            }', @msg_subject = '${emailObj.msg_subject}', @msg_body = '${
-              emailObj.msgbody
-            }', @is_send = 0, @emailtype = ncr;`
-          );
-          // await EmailMessage.create(emailObj);
+          // const result = await sequelize.query(
+          //   `InsertEmailAlerts  @msg_to = '${emailObj.msg_to}', @msg_cc = '${
+          //     emailObj.msg_cc ? emailObj.msg_cc : ""
+          //   }', @msg_subject = '${emailObj.msg_subject}', @msg_body = '${
+          //     emailObj.msgbody
+          //   }', @is_send = 0, @emailtype = ncr;`
+          // );
+          await EmailMessage.create(emailObj);
         } else {
           // res.send("Everything is fine.");
         }

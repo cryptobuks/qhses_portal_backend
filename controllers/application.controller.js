@@ -32,7 +32,7 @@ const applicationInclude = [
 getAllApplications = async (req, res, next) => {
   try {
     const results = await Application.findAll({
-      where: { users_table_name: null },
+      // where: { users_table_name: null },
       include: applicationInclude,
       order: [["id", "ASC"]],
     });
@@ -77,14 +77,16 @@ getUserApplications = async (req, res, next) => {
       applications.push(userApplication.application);
     });
 
+    console.log(applications);
+
     await asyncForEach(otherApps, async (otherApp) => {
-      const [results, metadata] = await sequelize.query(
-        `SELECT * FROM ${otherApp.users_table_name} WHERE emp_code = ${empId}`
-      );
-      if (results && results.length && results[0]) {
-        // const userData = results[0];
-        applications.push(otherApp);
-      }
+      // const [results, metadata] = await sequelize.query(
+      //   `SELECT * FROM ${otherApp.users_table_name} WHERE emp_code = ${empId}`
+      // );
+      // if (results && results.length && results[0]) {
+      //   // const userData = results[0];
+      //   applications.push(otherApp);
+      // }
     });
 
     // applications = [...applications, ...otherApps];

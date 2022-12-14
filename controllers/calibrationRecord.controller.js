@@ -156,13 +156,13 @@ addRecord = async (req, res, next) => {
         `${process.env.FRONTEND_BASE_URL}/equipment-calibration/records/edit/${record.id}`
       ),
     };
-    await sequelize.query(
-      `InsertEmailAlerts  @msg_to = '${emailObj.msg_to}', @msg_cc = '${
-        emailObj.msg_cc ? emailObj.msg_cc : ""
-      }', @msg_subject = '${emailObj.msg_subject}', @msg_body = '${
-        emailObj.msgbody
-      }', @is_send = 0, @emailtype = calibration;`
-    );
+    // await sequelize.query(
+    //   `InsertEmailAlerts  @msg_to = '${emailObj.msg_to}', @msg_cc = '${
+    //     emailObj.msg_cc ? emailObj.msg_cc : ""
+    //   }', @msg_subject = '${emailObj.msg_subject}', @msg_body = '${
+    //     emailObj.msgbody
+    //   }', @is_send = 0, @emailtype = calibration;`
+    // );
 
     const ownerEmailObj = {
       msg_to: record.owner.email,
@@ -173,13 +173,13 @@ addRecord = async (req, res, next) => {
       ),
     };
 
-    await sequelize.query(
-      `InsertEmailAlerts  @msg_to = '${ownerEmailObj.msg_to}', @msg_cc = '${
-        ownerEmailObj.msg_cc ? ownerEmailObj.msg_cc : ""
-      }', @msg_subject = '${ownerEmailObj.msg_subject}', @msg_body = '${
-        ownerEmailObj.msgbody
-      }', @is_send = 0, @emailtype = calibration;`
-    );
+    // await sequelize.query(
+    //   `InsertEmailAlerts  @msg_to = '${ownerEmailObj.msg_to}', @msg_cc = '${
+    //     ownerEmailObj.msg_cc ? ownerEmailObj.msg_cc : ""
+    //   }', @msg_subject = '${ownerEmailObj.msg_subject}', @msg_body = '${
+    //     ownerEmailObj.msgbody
+    //   }', @is_send = 0, @emailtype = calibration;`
+    // );
 
     /**
      * END Record Created EMAIL
@@ -240,13 +240,13 @@ updateRecord = async (req, res, next) => {
         `${process.env.FRONTEND_BASE_URL}/equipment-calibration/records/edit/${record.id}`
       ),
     };
-    await sequelize.query(
-      `InsertEmailAlerts  @msg_to = '${emailObj.msg_to}', @msg_cc = '${
-        emailObj.msg_cc ? emailObj.msg_cc : ""
-      }', @msg_subject = '${emailObj.msg_subject}', @msg_body = '${
-        emailObj.msgbody
-      }', @is_send = 0, @emailtype = calibration;`
-    );
+    // await sequelize.query(
+    //   `InsertEmailAlerts  @msg_to = '${emailObj.msg_to}', @msg_cc = '${
+    //     emailObj.msg_cc ? emailObj.msg_cc : ""
+    //   }', @msg_subject = '${emailObj.msg_subject}', @msg_body = '${
+    //     emailObj.msgbody
+    //   }', @is_send = 0, @emailtype = calibration;`
+    // );
 
     const ownerEmailObj = {
       msg_to: record.owner.email,
@@ -256,13 +256,13 @@ updateRecord = async (req, res, next) => {
         `${process.env.FRONTEND_BASE_URL}/equipment-calibration/records/edit/${record.id}`
       ),
     };
-    await sequelize.query(
-      `InsertEmailAlerts  @msg_to = '${ownerEmailObj.msg_to}', @msg_cc = '${
-        ownerEmailObj.msg_cc ? ownerEmailObj.msg_cc : ""
-      }', @msg_subject = '${ownerEmailObj.msg_subject}', @msg_body = '${
-        ownerEmailObj.msgbody
-      }', @is_send = 0, @emailtype = calibration;`
-    );
+    // await sequelize.query(
+    //   `InsertEmailAlerts  @msg_to = '${ownerEmailObj.msg_to}', @msg_cc = '${
+    //     ownerEmailObj.msg_cc ? ownerEmailObj.msg_cc : ""
+    //   }', @msg_subject = '${ownerEmailObj.msg_subject}', @msg_body = '${
+    //     ownerEmailObj.msgbody
+    //   }', @is_send = 0, @emailtype = calibration;`
+    // );
     /**
      * END Record Updated EMAIL
      */
@@ -344,13 +344,13 @@ checkCalibrationDueDate = async (req, res, next) => {
               msg_subject: "Equipment Calibration Alert",
               msgbody: body,
             };
-            await sequelize.query(
-              `InsertEmailAlerts  @msg_to = '${emailObj.msg_to}', @msg_cc = '${
-                emailObj.msg_cc ? emailObj.msg_cc : ""
-              }', @msg_subject = '${emailObj.msg_subject}', @msg_body = '${
-                emailObj.msgbody
-              }', @is_send = 0, @emailtype = calibration;`
-            );
+            // await sequelize.query(
+            //   `InsertEmailAlerts  @msg_to = '${emailObj.msg_to}', @msg_cc = '${
+            //     emailObj.msg_cc ? emailObj.msg_cc : ""
+            //   }', @msg_subject = '${emailObj.msg_subject}', @msg_body = '${
+            //     emailObj.msgbody
+            //   }', @is_send = 0, @emailtype = calibration;`
+            // );
           } else if (days >= 7) {
             const body = calibrationDaysTemplate(
               record.user.name,
@@ -363,13 +363,13 @@ checkCalibrationDueDate = async (req, res, next) => {
               msg_subject: "Equipment Calibration Alert",
               msgbody: body,
             };
-            await sequelize.query(
-              `InsertEmailAlerts  @msg_to = '${emailObj.msg_to}', @msg_cc = '${
-                emailObj.msg_cc ? emailObj.msg_cc : ""
-              }', @msg_subject = '${emailObj.msg_subject}', @msg_body = '${
-                emailObj.msgbody
-              }', @is_send = 0, @emailtype = calibration;`
-            );
+            // await sequelize.query(
+            //   `InsertEmailAlerts  @msg_to = '${emailObj.msg_to}', @msg_cc = '${
+            //     emailObj.msg_cc ? emailObj.msg_cc : ""
+            //   }', @msg_subject = '${emailObj.msg_subject}', @msg_body = '${
+            //     emailObj.msgbody
+            //   }', @is_send = 0, @emailtype = calibration;`
+            // );
           } else if (days >= 1) {
             const body = calibrationDaysTemplate(
               record.user.name,
@@ -382,13 +382,13 @@ checkCalibrationDueDate = async (req, res, next) => {
               msg_subject: "Equipment Calibration Alert",
               msgbody: body,
             };
-            await sequelize.query(
-              `InsertEmailAlerts  @msg_to = '${emailObj.msg_to}', @msg_cc = '${
-                emailObj.msg_cc ? emailObj.msg_cc : ""
-              }', @msg_subject = '${emailObj.msg_subject}', @msg_body = '${
-                emailObj.msgbody
-              }', @is_send = 0, @emailtype = calibration;`
-            );
+            // await sequelize.query(
+            //   `InsertEmailAlerts  @msg_to = '${emailObj.msg_to}', @msg_cc = '${
+            //     emailObj.msg_cc ? emailObj.msg_cc : ""
+            //   }', @msg_subject = '${emailObj.msg_subject}', @msg_body = '${
+            //     emailObj.msgbody
+            //   }', @is_send = 0, @emailtype = calibration;`
+            // );
           } else {
             //Overdue
             const body = calibrationOverDueTemplate(
@@ -402,13 +402,13 @@ checkCalibrationDueDate = async (req, res, next) => {
               msg_subject: "Equipment Calibration Alert",
               msgbody: body,
             };
-            await sequelize.query(
-              `InsertEmailAlerts  @msg_to = '${emailObj.msg_to}', @msg_cc = '${
-                emailObj.msg_cc ? emailObj.msg_cc : ""
-              }', @msg_subject = '${emailObj.msg_subject}', @msg_body = '${
-                emailObj.msgbody
-              }', @is_send = 0, @emailtype = calibration;`
-            );
+            // await sequelize.query(
+            //   `InsertEmailAlerts  @msg_to = '${emailObj.msg_to}', @msg_cc = '${
+            //     emailObj.msg_cc ? emailObj.msg_cc : ""
+            //   }', @msg_subject = '${emailObj.msg_subject}', @msg_body = '${
+            //     emailObj.msgbody
+            //   }', @is_send = 0, @emailtype = calibration;`
+            // );
           }
         }
       });

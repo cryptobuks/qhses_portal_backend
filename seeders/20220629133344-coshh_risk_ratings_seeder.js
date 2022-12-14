@@ -22,6 +22,6 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    lete("qhses_coshh_risk_ratings", {}, null);
+    return queryInterface.bulkDelete("qhses_coshh_risk_ratings", {}, null);
   },
 };

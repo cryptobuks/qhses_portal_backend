@@ -146,9 +146,9 @@ addSurvey = async (req, res, next) => {
           user.user_name,
           `${process.env.FRONTEND_BASE_URL}/customer-survey/surveys/${createdSurvey.id}/feedback`
         );
-        await sequelize.query(
-          `InsertEmailAlerts  @msg_to = '${user.user_email}', @msg_cc = '', @msg_subject = '${msgSubject}', @msg_body = '${msgbody}', @is_send = 0, @emailtype = customerSurvey;`
-        );
+        // await sequelize.query(
+        //   `InsertEmailAlerts  @msg_to = '${user.user_email}', @msg_cc = '', @msg_subject = '${msgSubject}', @msg_body = '${msgbody}', @is_send = 0, @emailtype = customerSurvey;`
+        // );
       });
     }
 
@@ -190,9 +190,9 @@ updateSurvey = async (req, res, next) => {
             user.user_name,
             `${process.env.FRONTEND_BASE_URL}/customer-survey/surveys/${id}/feedback`
           );
-          await sequelize.query(
-            `InsertEmailAlerts  @msg_to = '${user.user_email}', @msg_cc = '', @msg_subject = '${msgSubject}', @msg_body = '${msgbody}', @is_send = 0, @emailtype = customerSurvey;`
-          );
+          // await sequelize.query(
+          //   `InsertEmailAlerts  @msg_to = '${user.user_email}', @msg_cc = '', @msg_subject = '${msgSubject}', @msg_body = '${msgbody}', @is_send = 0, @emailtype = customerSurvey;`
+          // );
         });
       }
     }
@@ -235,9 +235,9 @@ addSurveyFeedback = async (req, res, next) => {
       user.name,
       `${process.env.FRONTEND_BASE_URL}/customer-survey/surveys/detail/${surveyExists.id}?feedbackUserId=${user.id}`
     );
-    await sequelize.query(
-      `InsertEmailAlerts  @msg_to = '${surveyExists.user.email}', @msg_cc = '', @msg_subject = '${msgSubject}', @msg_body = '${msgbody}', @is_send = 0, @emailtype = customerSurvey;`
-    );
+    // await sequelize.query(
+    //   `InsertEmailAlerts  @msg_to = '${surveyExists.user.email}', @msg_cc = '', @msg_subject = '${msgSubject}', @msg_body = '${msgbody}', @is_send = 0, @emailtype = customerSurvey;`
+    // );
 
     await SurveyFeedback.create(req.body, {
       include: [
@@ -274,9 +274,9 @@ sendSurveyReminderToUser = async (req, res, next) => {
       user.name,
       `${process.env.FRONTEND_BASE_URL}/customer-survey/surveys/${surveyId.id}/feedback`
     );
-    await sequelize.query(
-      `InsertEmailAlerts  @msg_to = '${user.email}', @msg_cc = '', @msg_subject = '${msgSubject}', @msg_body = '${msgbody}', @is_send = 0, @emailtype = customerSurvey;`
-    );
+    // await sequelize.query(
+    //   `InsertEmailAlerts  @msg_to = '${user.email}', @msg_cc = '', @msg_subject = '${msgSubject}', @msg_body = '${msgbody}', @is_send = 0, @emailtype = customerSurvey;`
+    // );
 
     res.send({
       data: "Reminder Send Successfully!",
